@@ -28,6 +28,7 @@ export class DatasetUtils {
     public static readonly DATASET_FILTER_OPTS = [this.DATASET_SORT_OPTS[2], this.DATASET_SORT_OPTS[3]];
 
     public static updateSortOptionsWithDefault(sortMethod: Sorting.DatasetSortOpts): void {
+        this.DATASET_SORT_OPTS = this.DATASET_SORT_OPTS.map((opt) => opt.replace(` ${vscode.l10n.t("(default)")}`, ""));
         this.DATASET_SORT_OPTS = this.DATASET_SORT_OPTS.map((opt, index) => {
             if (index === sortMethod) {
                 return `${opt} ${vscode.l10n.t("(default)")}`;
